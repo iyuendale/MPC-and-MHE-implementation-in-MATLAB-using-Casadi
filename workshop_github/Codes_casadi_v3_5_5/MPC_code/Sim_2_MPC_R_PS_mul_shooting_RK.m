@@ -6,7 +6,7 @@ clc
 % CasADi v3.5.1
 % addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.1')
 % CasADi v3.5.5
-addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
+% addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
 import casadi.*
 
 h = 0.2; %[s]
@@ -126,7 +126,7 @@ while(norm((x0-xs),2) > 1e-2 && mpciter < sim_tim / h)
     X0 = reshape(full(sol.x(1:3*(N+1)))',3,N+1)'; % get solution TRAJECTORY
     % Shift trajectory to initialize the next step
     X0 = [X0(2:end,:);X0(end,:)];
-    mpciter
+    mpciter;
     mpciter = mpciter + 1;
 end;
 main_loop_time = toc(main_loop);
