@@ -6,7 +6,7 @@ clc
 % CasADi v3.4.5
 % addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.4.5')
 % CasADi v3.5.5
-addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
+% addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
 import casadi.*
 
 T = 0.5; %[s]
@@ -64,7 +64,7 @@ opts.print_time = 0;
 opts.ipopt.acceptable_tol =1e-8;
 opts.ipopt.acceptable_obj_change_tol = 1e-6;
 
-solver = nlpsol('solver', 'ipopt', nlp_prob,opts);
+solver = nlpsol('solver', 'ipopt', nlp_prob,opts)
 
 args = struct;
 
@@ -140,7 +140,7 @@ while(mpciter < sim_tim / T) % new - condition for ending the loop
     X0 = reshape(full(sol.x(1:3*(N+1)))',3,N+1)'; % get solution TRAJECTORY
     % Shift trajectory to initialize the next step
     X0 = [X0(2:end,:);X0(end,:)];
-    mpciter
+    mpciter;
     mpciter = mpciter + 1;
 end;
 main_loop_time = toc(main_loop);
