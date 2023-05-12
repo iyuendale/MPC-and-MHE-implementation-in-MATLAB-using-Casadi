@@ -1,6 +1,6 @@
-clear all
-close all
-clc
+% clear all
+% close all
+% clc
 
 x = [0,45,90,135,180];
 y = [667,661,757,871,1210];
@@ -22,7 +22,7 @@ grid on
 % CasADi v3.4.5
 % addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.4.5')
 % CasADi v3.5.5
-addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
+% addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
 import casadi.*
  
 m = SX.sym('m'); % Decision variable (slope)
@@ -62,7 +62,7 @@ args.x0  = [0.5,1]; % initialization of the optimization problem
 sol = solver('x0', args.x0, 'lbx', args.lbx, 'ubx', args.ubx,...
     'lbg', args.lbg, 'ubg', args.ubg,'p',args.p);
 x_sol = full(sol.x);            % Get the solution
-min_value = full(sol.f)   % Get the value function
+min_value = full(sol.f);   % Get the value function
 
 x_line = [0:1:180];
 m_sol = x_sol(1)
