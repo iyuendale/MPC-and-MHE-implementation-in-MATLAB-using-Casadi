@@ -6,11 +6,11 @@ clc
 % CasADi v3.4.5
 % addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.4.5')
 % CasADi v3.5.5
-addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
+% addpath('C:\Users\mehre\OneDrive\Desktop\CasADi\casadi-windows-matlabR2016a-v3.5.5')
 import casadi.*
 
 T = 0.2; % sampling time [s]
-N = 20; % prediction horizon
+N = 10; % prediction horizon
 rob_diam = 0.3;
 
 v_max = 0.6; v_min = -v_max;
@@ -65,7 +65,7 @@ nlp_prob = struct('f', obj, 'x', OPT_variables, 'g', g, 'p', P);
 
 opts = struct;
 opts.ipopt.max_iter = 100;
-opts.ipopt.print_level =0;%0,3
+opts.ipopt.print_level =0; %0,3
 opts.print_time = 0;
 opts.ipopt.acceptable_tol =1e-8;
 opts.ipopt.acceptable_obj_change_tol = 1e-6;
@@ -126,7 +126,7 @@ while(norm((x0-xs),2) > 1e-2 && mpciter < sim_tim / T)
     [t0, x0, u0] = shift(T, t0, x0, u,f); % get the initialization of the next optimization step
     
     xx(:,mpciter+2) = x0;  
-    mpciter
+    mpciter;
     mpciter = mpciter + 1;
 end;
 main_loop_time = toc(main_loop)
